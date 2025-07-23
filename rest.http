@@ -1,0 +1,55 @@
+@baseUrl = http://localhost:3000
+@apiUrl = {{baseUrl}}/api/v1
+
+# GET REQUEST
+GET {{baseUrl}}
+
+###
+POST {{apiUrl}}/auth
+Content-Type: application/json
+
+{
+    "username": "James",
+    "email": "james@gmail.com",
+    "password": "1234"
+}
+
+###
+POST {{apiUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "james@gmail.com",
+    "password": "1234"
+}
+
+###
+POST {{apiUrl}}/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbWVzQGdtYWlsLmNvbSIsImlhdCI6MTc1MjQ2OTQ2MCwiZXhwIjoxNzUyNTU1ODYwfQ.gQUaLEXSUfqjuc4CYZ_dtY4GZg75RbVpC73n9ItCPBg
+
+{
+    "type": "income",
+    "date": "06-14-2025",
+    "description": "Salary",
+    "amount": "1050"
+}
+
+###
+GET {{apiUrl}}/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbWVzQGdtYWlsLmNvbSIsImlhdCI6MTc1MjQ2OTQ2MCwiZXhwIjoxNzUyNTU1ODYwfQ.gQUaLEXSUfqjuc4CYZ_dtY4GZg75RbVpC73n9ItCPBg
+
+###
+DELETE {{apiUrl}}/transactions/68749004f7b387570feff654
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbWVzQGdtYWlsLmNvbSIsImlhdCI6MTc1MjQ4NzUxMywiZXhwIjoxNzUyNTczOTEzfQ.NULdADOvl0CSBMUoBd3hqf-5a0aC8lZgJW9rEZGBSV8
+
+###
+// Deleting multiple transactions
+DELETE {{apiUrl}}/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbWVzQGdtYWlsLmNvbSIsImlhdCI6MTc1MjQ4NzUxMywiZXhwIjoxNzUyNTczOTEzfQ.NULdADOvl0CSBMUoBd3hqf-5a0aC8lZgJW9rEZGBSV8
+
+{
+  "ids": ["id1", "id2", "id3"]
+}
